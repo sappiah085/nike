@@ -1,0 +1,24 @@
+*,
+*::after,
+*::before {
+  margin: 0%;
+  padding: 0%;
+  box-sizing: inherit;
+}
+
+$main-color: black;
+$complement: white;
+$blue: dodgerblue;
+$red: rgb(210, 60, 36);
+$green: rgb(113, 222, 113);
+$white: black;
+$violet: white;
+
+body {
+  overflow: hidden;
+  font-size: 62.5%;
+  box-sizing: border-box;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  width: 100%;
+  font-weight: 400;
+}

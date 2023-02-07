@@ -1,0 +1,158 @@
+header {
+  display: flex;
+  position: fixed;
+  top: 0%;
+  align-items: center;
+  padding: 1rem 2rem;
+  width: 100%;
+  z-index: 9999;
+  nav {
+    display: flex;
+    font-size: 1.1rem;
+    justify-content: space-between;
+    width: 100%;
+    .logo {
+      width: 5rem;
+      height: 5rem;
+      img {
+        width: 100%;
+      }
+    }
+    a {
+      &:link,
+      &:active,
+      &:visited {
+        display: inline-block;
+        text-decoration: none;
+        position: relative;
+        color: $main-color;
+        border: 1px solid inherit;
+        padding: 0.4rem 1.1rem;
+        border-radius: 2px;
+        transition: all 0.1s ease-in;
+        overflow: hidden;
+      }
+      &::after {
+        position: absolute;
+        content: "";
+        width: 2%;
+        left: 0%;
+        top: 0%;
+        z-index: -1;
+        height: 100%;
+        transform: translateY(100%);
+        transition: transform 0.2s, width 0.3s 0.2s;
+        background-color: $main-color;
+      }
+      &:hover {
+        color: $complement;
+        &::after {
+          transform: translateY(0);
+          width: 100%;
+        }
+      }
+    }
+    ul {
+      list-style: none;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    .icons {
+      display: flex;
+      align-items: center;
+    }
+  }
+}
+
+main {
+  display: grid;
+  justify-content: center;
+  grid-template-columns: repeat(auto-fit, minmax(50px, 1fr));
+  label {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+    transition: all 1s ease;
+    overflow: hidden;
+    box-shadow: -2px 0 10px rgba(0, 0, 0, 0.306);
+    figure {
+      transition: all 0.5s;
+    }
+    figcaption {
+      grid-column: 1/-1;
+      grid-row: 3;
+      font-size: 10rem;
+      font-weight: 800;
+      color: white;
+      font-style: italic;
+    }
+    .nikes {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-rows: repeat(5, 1fr);
+      position: relative;
+
+      span {
+        display: inline-block;
+        position: relative;
+        z-index: 3;
+        grid-column: 2/-1;
+        grid-row: 3/4;
+        width: 30rem;
+        img {
+          width: 100%;
+        }
+        &::after {
+          content: "";
+          height: 4em;
+          width: 80%;
+          top: 60%;
+          left: 0%;
+          position: absolute;
+          rotate: -30deg;
+          box-shadow: 0px 199px 100px 0px black;
+        }
+      }
+    }
+  }
+  input:not(:checked) + label > figure {
+    transform: scale(0.9);
+  }
+  input:checked + label {
+    z-index: 67;
+    grid-column: span 3;
+    img {
+      animation: animate 0.3s ease forwards;
+    }
+    figure {
+      transform: translateX(-50px) translateZ(10px);
+    }
+  }
+  .nike--3 {
+    z-index: 3;
+    background-color: $green;
+  }
+  .nike--2 {
+    background-color: $violet;
+    z-index: 2;
+    figcaption {
+      color: black;
+    }
+  }
+  .nike--1 {
+    z-index: 1;
+    background-color: $blue;
+  }
+  input {
+    display: none;
+  }
+}
+
+@keyframes animate {
+  to {
+    transform: rotate(25deg);
+  }
+}
